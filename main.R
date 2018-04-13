@@ -46,11 +46,11 @@ syn_run <- function(nRows, nNumCatA, nNumCatB) {
 }
 
 
-acRows <- c(5000, 25000, 50000)
-acColsA <- c(12, 16, 17, 20, 30)
-acColsB <- c(6, 9, 15, 11, 21, 30)
+acRows <- c(3300, 3500, 3700, 4000)
+acColsA <- c(12, 14, 16, 17, 19, 20, 21, 22 )
+acColsB <- c(6, 8, 9, 10, 11, 12, 13, 14, 15 )
 
-nRUNS = 10
+nRUNS = 1000
 
 lcRows =  sample(acRows, nRUNS, replace = TRUE)
 lcColsA =  sample(acColsA, nRUNS, replace = TRUE)
