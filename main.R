@@ -4,33 +4,38 @@ library("synthpop")
 
 
 
-syn_run <- function(nRows, nNumCatA, nNumCatB) {
+get_cat_column <- function (nRows, nNumFactors) {
+  
+  cat_values = seq(from = 0, to = nNumFactors - 1)
+  
+  s = sample(cat_values, size = nRows, replace = TRUE)
+  
+  s_f = factor(s)
+  
+  return (s_f)
 
+}
+
+
+syn_run <- function(nRows, nNumCatA, nNumCatB) {
   
   
-  cat_a = seq(from = 0, to = nNumCatA - 1)
+  message(sprintf("syn_run: (%d, %d, %d)\n", nRows, nNumCatA, nNumCatB))
   
-  sa = sample(cat_a, size = nRows, replace = TRUE)
-  sa_f <- factor(sa)
-  
-  
-  cat_b = seq(from = 0, to = nNumCatB - 1)
-  
-  sb = sample(cat_b, size = nRows, replace = TRUE)
-  sb_f <- factor(sb)
+  NUMERIC_MAX = 10 * nRows
+
+  free_value_sequence  = seq(from = 0, to = NUMERIC_MAX -1)
   
   
-  NUMERIC_MAX = 5 * nRows
-  
-  cat_c = seq(from = 0, to = NUMERIC_MAX -1)
-  sc = sample(cat_c, size = nRows, replace = TRUE)
-  
-  
-  cat_d = seq(from = 0, to = NUMERIC_MAX -1)
-  sd = sample(cat_d, size = nRows, replace = TRUE)
-  
-  
-  dat <- data.frame(a = sa_f, b = sb_f, c = sc, d = sd)
+  dat <- data.frame(c_0 = get_cat_column(nRows, nNumCatA), 
+                    c_1 = get_cat_column(nRows, nNumCatB),
+                    c_2 = get_cat_column(nRows, 14),
+                    c_3 = get_cat_column(nRows, 14),
+                    c_4 = get_cat_column(nRows, 11),
+                    c_5 = get_cat_column(nRows, 9),
+                    
+                    c = sample(free_value_sequence, size = nRows, replace = TRUE), 
+                    d = sample(free_value_sequence, size = nRows, replace = TRUE))
   
   
   start_time = Sys.time()
@@ -46,11 +51,14 @@ syn_run <- function(nRows, nNumCatA, nNumCatB) {
 }
 
 
-acRows <- c(3300, 3500, 3700, 4000)
-acColsA <- c(12, 14, 16, 17, 19, 20, 21, 22 )
-acColsB <- c(6, 8, 9, 10, 11, 12, 13, 14, 15 )
+acRows <- c(1500, 1500, 1500, 1500, 1500)
+acColsA <- c(8, 8, 8, 8, 8, 8)
+acColsB <-  c(14, 17, 20, 21, 22, 23, 24, 25, 26)
 
-nRUNS = 1000
+nRUNS = 100
+
+
+
 
 lcRows =  sample(acRows, nRUNS, replace = TRUE)
 lcColsA =  sample(acColsA, nRUNS, replace = TRUE)
