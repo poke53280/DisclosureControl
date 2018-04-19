@@ -29,9 +29,9 @@ syn_run <- function(nRows, nNumCatA, nNumCatB) {
   
   dat <- data.frame(c_0 = get_cat_column(nRows, nNumCatA), 
                     c_1 = get_cat_column(nRows, nNumCatB),
-                    c_2 = get_cat_column(nRows, 14),
-                    c_3 = get_cat_column(nRows, 14),
-                    c_4 = get_cat_column(nRows, 11),
+                    c_2 = get_cat_column(nRows, 7),
+                    c_3 = get_cat_column(nRows, 4),
+                    c_4 = get_cat_column(nRows, 5),
                     c_5 = get_cat_column(nRows, 9),
                     
                     c = sample(free_value_sequence, size = nRows, replace = TRUE), 
@@ -53,9 +53,9 @@ syn_run <- function(nRows, nNumCatA, nNumCatB) {
 
 acRows <- c(1500, 1500, 1500, 1500, 1500)
 acColsA <- c(8, 8, 8, 8, 8, 8)
-acColsB <-  c(14, 17, 20, 21, 22, 23, 24, 25, 26)
+acColsB <-  c(14, 17, 20, 21, 22, 23, 24, 25, 26, 27, 28)
 
-nRUNS = 100
+nRUNS = 300
 
 
 
