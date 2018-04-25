@@ -51,12 +51,11 @@ syn_run <- function(nRows, nNumCatA, nNumCatB) {
 }
 
 
-acRows <- c(1500, 1500, 1500, 1500, 1500)
-acColsA <- c(8, 8, 8, 8, 8, 8)
-acColsB <-  c(14, 17, 20, 21, 22, 23, 24, 25, 26, 27, 28)
+acRows <- c(900, 1200, 1500, 2200, 2250, 3000)
+acColsA <- c(8, 9, 10, 11, 12, 13)
+acColsB <-  c(14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38)
 
-nRUNS = 300
-
+nRUNS = 3000
 
 
 
@@ -69,10 +68,13 @@ lcTime = vector(length = nRUNS)
 
 for (i in 1:(nRUNS)) {
 
-  
+  cat(i, nRUNS)
   nRow = lcRows[i]
   nColsA = lcColsA[i]
   nColsB = lcColsB[i]
+  
+  
+  cat ("nRows=", nRow, ",nColA=", nColsA, ", nColsB=", nColsB)
   
   t = syn_run(nRow, nColsA, nColsB)
   
