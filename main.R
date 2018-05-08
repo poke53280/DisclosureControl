@@ -29,10 +29,10 @@ syn_run <- function(nRows, nNumCatA, nNumCatB) {
   
   dat <- data.frame(c_0 = get_cat_column(nRows, nNumCatA), 
                     c_1 = get_cat_column(nRows, nNumCatB),
-                    c_2 = get_cat_column(nRows, 7),
-                    c_3 = get_cat_column(nRows, 4),
-                    c_4 = get_cat_column(nRows, 5),
-                    c_5 = get_cat_column(nRows, 9),
+                    c_2 = get_cat_column(nRows, 4),
+                    c_3 = get_cat_column(nRows, 7),
+                    c_4 = get_cat_column(nRows, 8),
+                    c_5 = get_cat_column(nRows, 8),
                     
                     c = sample(free_value_sequence, size = nRows, replace = TRUE), 
                     d = sample(free_value_sequence, size = nRows, replace = TRUE))
@@ -40,7 +40,7 @@ syn_run <- function(nRows, nNumCatA, nNumCatB) {
   
   start_time = Sys.time()
   
-  sds.default <- syn(dat, seed = my.seed, maxfaclevels = max(nNumCatA, nNumCatB))
+  sds.default <- syn(dat, seed = 2123, maxfaclevels = max(nNumCatA, nNumCatB))
   
   end_time = Sys.time()
   
@@ -51,11 +51,11 @@ syn_run <- function(nRows, nNumCatA, nNumCatB) {
 }
 
 
-acRows <- c(900, 1200, 1500, 2200, 2250, 3000)
-acColsA <- c(8, 9, 10, 11, 12, 13)
-acColsB <-  c(14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38)
+acRows <- c(9000, 15000, 19000)
+acColsA <- c(9, 9, 9, 9, 9, 9, 9, 9)
+acColsB <-  c(9, 9, 9, 9, 9)
 
-nRUNS = 3000
+nRUNS = 30
 
 
 
