@@ -51,7 +51,7 @@ syn_run <- function(nRows, nNumCatA, nNumCatB) {
 }
 
 
-acRows <- c(9000, 15000, 19000)
+acRows <- c(10000, 15000, 20000, 25000, 30000)
 acColsA <- c(9, 9, 9, 9, 9, 9, 9, 9)
 acColsB <-  c(9, 9, 9, 9, 9)
 
